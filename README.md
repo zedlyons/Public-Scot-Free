@@ -1,0 +1,14 @@
+# Scot-Free
+Using FBI crime database API and sklearn to determine whether someone gets away with murder. 
+Collaborative effort of Zed Lyons (creator and code monkey) and Chad de Vera (extremely helpful techinical consultant)
+
+* webresources.txt is a list of websites to get data from and maybe find documentation on the FBI API
+* understanding_NIBRS contains files that help describe the database structure and cop-jargon of the NIBRS data
+* NIBRS-data
+  * ex_analysis.ipynb is the exploratory analysis and training of the ML model
+  * scotfreetandomforestmodel.joblib is the saved trained model
+  * .parquets are archived polars dataframes used in ex_analysis.ipynb 
+  * NIBRS-data/?? (where ?? is a state abbreviation) contains a test dataset comprised solely of crimes committed in New England between 2021-2024 inclusive (gathered from https://cde.ucr.cjis.gov/LATEST/webapp/#). This data is smaller than a full national download from the same URL and is a good option for dev/testing/proof-of-concept.
+  * bulkunzip.sh unzips and organizes all zip archives added to NIBRS-data within their respective state abbreviation folders (e.g. /NH/NH-2022.zip). These zip archives are the easiest form of data I could pull from the FBI's website
+  * bulkload.sh populates the relevant data from the .csv files in all /??/??-YEAR directories into the cloud-based postgreSQL server
+  * *.sql and *.csv files are used by bulkload.sh for loading

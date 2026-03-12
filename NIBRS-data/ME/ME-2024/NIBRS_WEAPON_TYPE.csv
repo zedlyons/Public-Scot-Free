@@ -1,0 +1,39 @@
+weapon_id,weapon_code,weapon_name,shr_flag
+21,20,Knife/Cutting Instrument,t
+31,30,Blunt Object,t
+32,35,Motor Vehicle/Vessel,f
+33,50,Poison,t
+34,60,Explosives,t
+35,65,Fire/Incendiary Device,t
+36,70,Drugs/Narcotics/Sleeping Pills,t
+37,85,Asphyxiation,t
+38,90,Other,t
+39,95,Unknown,f
+41,40,Personal Weapons,t
+42,99,None,f
+51,01,Unarmed,f
+52,16,Lethal Cutting Instrument,f
+53,17,Club/Blackjack/Brass Knuckles,f
+54,55,Pushed or Thrown Out Window,t
+55,75,Drowning,t
+56,80,Strangulation - Include Hanging,t
+1,11,Firearm,t
+2,21,Firearm,f
+3,11A,Firearm (Automatic),f
+4,21A,Firearm (Automatic),f
+5,12,Handgun,t
+6,22,Handgun,f
+7,12A,Handgun (Automatic),f
+8,22A,Handgun (Automatic),f
+9,13,Rifle,t
+10,23,Rifle,f
+11,13A,Rifle (Automatic),f
+12,23A,Rifle (Automatic),f
+13,14,Shotgun,t
+14,24,Shotgun,f
+15,14A,Shotgun (Automatic),f
+16,24A,Shotgun (Automatic),f
+17,15,Other Firearm,t
+18,25,Other Firearm,f
+19,15A,Other Firearm (Automatic),f
+20,25A,Other Firearm (Automatic),f

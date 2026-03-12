@@ -1,0 +1,8 @@
+https://cde.ucr.cjis.gov/LATEST/webapp/#pages/downloads								                          Download datasets and explanations
+https://nicktallant.com/DataCensus/PolicyArea/Crime/						                              	Example code on API query
+https://web.archive.org/web/20200914155554mp_/https://github.com/fbi-cde/crime-data-frontend		Crime Data Explorer API documentation from when it still was supported
+https://web.archive.org/web/20190510175040/https://crime-data-explorer.fr.cloud.gov/api			    FBI CDE frontend docs
+https://catalog.data.gov/dataset/national-incident-based-reporting-system-nibrs-series-e45c2    Full database download
+https://github.com/fbi-cde/crime-data-api?tab=readme-ov-file						                        backend of CDE API with documentation
+https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi                       										Crime Data API docs
+https://ucr.fbi.gov/nibrs/2011/resources/nibrs-offense-codes						offense code documentation including Group A vs Group B
