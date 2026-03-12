@@ -8,7 +8,7 @@ Collaborative effort of Zed Lyons (creator and code monkey) and Chad de Vera (ex
   * ex_analysis.ipynb is the exploratory analysis and training of the ML model
   * scotfreetandomforestmodel.joblib is the saved trained model
   * .parquets are archived polars dataframes used in ex_analysis.ipynb 
-  * NIBRS-data/?? (where ?? is a state abbreviation) contains a test dataset comprised solely of crimes committed in New England between 2021-2024 inclusive (gathered from https://cde.ucr.cjis.gov/LATEST/webapp/#). This data is smaller than a full national download from the same URL and is a good option for dev/testing/proof-of-concept.
+  * NIBRS-data/?? (where ?? is a state abbreviation) contains a test dataset comprised solely of crimes committed in New England between 2021-2024 inclusive (gathered from https://cde.ucr.cjis.gov/LATEST/webapp/#). I have removed most of the data from the repo for size reasons; I've left enough to be illustrative of the structure of the directory in case you want to populate it with more years/states. From testing, data from BEFORE 2021 is not compatible with Scot-Free code.
   * bulkunzip.sh unzips and organizes all zip archives added to NIBRS-data within their respective state abbreviation folders (e.g. /NH/NH-2022.zip). These zip archives are the easiest form of data I could pull from the FBI's website
   * bulkload.sh populates the relevant data from the .csv files in all /??/??-YEAR directories into the cloud-based postgreSQL server
   * *.sql and *.csv files are used by bulkload.sh for loading
