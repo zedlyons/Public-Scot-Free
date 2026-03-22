@@ -30,6 +30,13 @@ def find_agency():
     if request.method == "GET":  # get user input for date and state of crime
         return render_template("home.html")
     else:  # "POST" user has given state/date data
+        
+        ######
+        print("--- /predict called ---")
+        stoice = request.form["state"]
+        print(f"choice: {stoice}")
+        ######
+
         # user can now pick which geo/temporally-correct agency investigates
         state = request.form["state"]
         date_string = request.form["date"]
@@ -58,7 +65,7 @@ def find_agency():
         )
 
 
-@app.route("/prediction", methods=["POST", "GET"])  # remove post if not needed
+@app.route("/prediction", methods=["POST", "GET"])
 def predict():
 
     # ---begin variable request block---
