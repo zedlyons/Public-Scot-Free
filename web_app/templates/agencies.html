@@ -1,0 +1,231 @@
+<html lang="en">
+<!--agency-selection html. sloppy html code below -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scot-Free</title>
+</head>
+<center>
+    <p style="padding: 30px;"> </p>
+    <strong>
+        <p style="font-size: 40px;">
+            PROJECT SCOT-FREE
+        </p>
+    </strong>
+
+</center>
+
+<p style="padding: 25px;"> </p>
+
+<p style="font-size: 18px; margin-left: 200px;">
+    You have chosen {{ datevar }} as the date of the murder and {{ statevar }} as the state.
+    Please select the investigating police organization from the list below. <br>
+</p>
+
+<form action="/prediction" method="POST" style="margin-left: 200px;">
+    <label for="choice"><strong>Note:</strong> "SO" is sheriff's office, "SP" is state police </label>
+    <input list="options-list" name="choice" id="choice" style="width: 700px;">
+    <datalist id="options-list">
+        {% for option in agen_options.rows() %}
+        <option value="{{ option[-1] }}">
+            {% endfor %}
+    </datalist><br>
+
+    <input type="hidden" name="date" id="date" value="{{ datevar }}">
+    <input type="hidden" name="ag_year" id="ag_year" value="{{ ag_year }}">
+    <input type="hidden" name="state" id="state" value="{{ statevar }}">
+
+    <p style="padding: 10px;"> </p>
+
+    <label for="hour">
+        Provide the hour that the murder was committed (24hr clock)
+    </label>
+    <input required type="number" id="hour" name="hour" min="0" max="23" style="margin-bottom: 3;">
+    <br>
+    <label for="num_killers">
+        How many perpetrators were involved in this murder?
+    </label>
+    <input required type="number" id="num_killers" name="num_killers" min="1" style="width: 45px; margin-bottom: 3;">
+    <br>
+
+    <label for="vic_sex">
+        Provide the victim's sex, age, race, and ethnicity
+    </label>
+    <select required name="vic_sex" id="vic_sex">
+        <option value="NONE_GIVEN" disabled selected>-</option>
+        <option value="F">F</option>
+        <option value="M">M</option>
+    </select>
+
+    <input type="number" id="vic_age" name="vic_age" min="0" max="99" style="margin-bottom: 3px;">
+
+    <select required name="vic_race">
+        <option value="NONE" disabled selected>--------------------------------</option>
+        <option value="Black or African American">Black</option>
+        <option value="White">White</option>
+        <option value="Asian">Asian</option>
+        <option value="American Indian or Alaska Native">Amerindian or Alaska Native</option>
+    </select>
+
+
+    <select required name="vic_ethnic">
+        <option value="NONE" disabled selected>--------------------</option>
+        <option value="Hispanic or Latino">Hispanic/Latino</option>
+        <option value="Not Hispanic or Latino">Not Hispanic/Latino</option>
+    </select>
+    <br>
+
+    <label for="res_status">
+        Was the victim a resident of the jurisdiction he/she was killed in? Was he/she a police officer?
+    </label>
+    <select required name="res_status" style="margin-bottom: 3px;">
+        <option value="NONE_GIVEN" disabled selected>----------</option>
+        <option value="R">Resident</option>
+        <option value="N">Non-resident</option>
+    </select>
+
+    <select required name="vic_type">
+        <option value="NONE_GIVEN" disabled selected>------------</option>
+        <option value="Individual">Private Citizen</option>
+        <option value="Law Enforcement Officer">Police Officer</option>
+    </select>
+    <br>
+
+    <label for="gang">
+        Was this a gang-related killing?
+    </label>
+    <select required name="gang" style="margin-bottom: 3px;">
+        <option value="NONE_GIVEN" disabled selected>-----------</option>
+        <option value="None/Uknown">None/Uknown</option>
+        <option value="Juvenile Gang">Juvenile Gang</option>
+        <option value="Other Gang">Other Gang</option>
+    </select>
+    <br>
+
+    <label for="location">
+        Provide the location-type of the killing
+    </label>
+    <select required name="location" style="margin-bottom: 6px;">
+        <option value="NONE_GIVEN" disabled selected>-------------------------------------------</option>
+        <option value="Park/Playground">Park/Playground</option>
+        <option value="Camp/Campground">Camp/Campground</option>
+        <option value="Department/Discount Store">Department/Discount Store</option>
+        <option value="Convenience Store">Convenience Store</option>
+        <option value="Bar/Nightclub">Bar/Nightclub</option>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Liquor Store">Liquor Store</option>
+        <option value="Air/Bus/Train Terminal">Air/Bus/Train Terminal</option>
+        <option value="Lake/Waterway/Beach">Lake/Waterway/Beach</option>
+        <option value="Specialty Store">Specialty Store</option>
+        <option value="Residence/Home">Residence/Home</option>
+        <option value="Service/Gas Station">Service/Gas Station</option>
+        <option value="Hotel/Motel/Etc.">Hotel/Motel/Etc.</option>
+        <option value="Church/Synagogue/Temple/Mosque">Church/Synagogue/Temple/Mosque</option>
+        <option value="Field/Woods">Field/Woods</option>
+        <option value="Government/Public Building">Government/Public Building</option>
+        <option value="Bank/Savings and Loan">Bank/Savings and Loan</option>
+        <option value="Community Center">Community Center</option>
+        <option value="ATM Separate from Bank">ATM Separate from Bank</option>
+        <option value="Parking/Drop Lot/Garage">Parking/Drop Lot/Garage</option>
+        <option value="Abandoned/Condemned Structure">Abandoned/Condemned Structure</option>
+        <option value="Shelter-Mission/Homeless">Shelter-Mission/Homeless</option>
+        <option value="School-Elementary/Secondary">School-Elementary/Secondary</option>
+        <option value="Commercial/Office Building">Commercial/Office Building</option>
+        <option value="Drug Store/Doctor's Office/Hospital">Drug Store/Doctor's Office/Hospital</option>
+        <option value="Jail/Prison/Penitentiary/Corrections Facility">Jail/Prison/Penitentiary/Corrections Facility
+        </option>
+        <option value="Grocery/Supermarket">Grocery/Supermarket</option>
+        <option value="Highway/Road/Alley/Street/Sidewalk">Highway/Road/Alley/Street/Sidewalk</option>
+        <option value="Other/Unknown">Other/Unknown</option>
+    </select>
+    <br>
+
+
+    <p style="font-size: 18px; margin-bottom: 3px;">
+        Enumerate property losses associated with the murder below. Check all that apply
+    </p>
+
+
+    <input type="checkbox" id="prop_destruction" name="prop_destruction" value="1">
+    <label for="prop_destruction"> Property damage (e.g. arson, vandalism) associated with the killing</label><br>
+    <input type="checkbox" id="looted_remains" name="looted_remains" value="1">
+    <label for="looted_remains"> Theft (of victim's property) committed by the killer</label><br>
+    <input type="checkbox" id="taken_by_cops" name="taken_by_cops" value="1">
+    <label for="taken_by_cops" style="margin-bottom: 6px;"> Police seizure of contraband (e.g. weapons, drugs) at the
+        crime scene</label><br>
+
+    <p style="font-size: 18px; margin-bottom: -16px;">
+        Weapons used in the murder. Check all that apply
+    </p>
+    <br>
+    <input type="checkbox" id="firearms" name="firearms" value="1">
+    <label for="firearms"> Firearm</label><br>
+    <input type="checkbox" id="feet_and_fists" name="feet_and_fists" value="1">
+    <label for="feet_and_fists"> Personal weapons (feet and/or fists)</label><br>
+    <input type="checkbox" id="edged_weapon" name="edged_weapon" value="1">
+    <label for="edged_weapon"> Bladed weapon </label><br>
+    <input type="checkbox" id="vehicle_as_weapon" name="vehicle_as_weapon" value="1">
+    <label for="vehicle_as_weapon"> Motor vehicle</label><br>
+    <input type="checkbox" id="blunt_weapon" name="blunt_weapon" value="1">
+    <label for="blunt_weapon"> Blunt weapon</label><br>
+    <input type="checkbox" id="weaponized_fire" name="weaponized_fire" value="1">
+    <label for="weaponized_fire"> Incendiary/fire</label><br>
+    <input type="checkbox" id="choked_or_strangled" name="choked_or_strangled" value="1">
+    <label for="choked_or_strangled"> Strangulation/choking</label><br>
+    <input type="checkbox" id="poison" name="poison" value="1">
+    <label for="poison"> Poison</label><br>
+    <input type="checkbox" id="other_weapon" name="other_weapon" value="1">
+    <label for="other_weapon"> Other weapon</label><br>
+
+    <p style="padding: 0px;"> </p>
+
+    <label for="num_victims" style="font-size: 16px; margin-bottom: 3px; margin-top: 6px;">
+        Number of <strong>additonal</strong> victims of this particular incident (e.g. if this was a double-homicide,
+        enter "1")</label>
+    <input required type="number" id="num_victims" name="num_victims" min="0" style="width: 45px;">
+    <br>
+
+    <p style="padding: 3px;"> </p>
+
+    <center>
+        <input type="submit" value="Submit">
+    </center>
+
+
+</form>
+
+<footer style="padding: 60px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
+    © Edgar Lyons 2026
+
+    <style>
+        .footerlinks {
+            text-decoration: none;
+            color: black;
+            border: 1px solid black;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+    </style>
+
+    <ul style="display: flex; gap: 16px; list-style: none;">
+        <li>
+            <a href="https://github.com/zedlyons/Public-Scot-Free" target="_blank" rel="noopener noreferrer"
+                class="footerlinks">
+
+                Github Repository</a>
+        </li>
+
+        <li>
+            <a href="https://www.linkedin.com/in/edgar-lyons-266591155" target="_blank" rel="noopener noreferrer"
+                class="footerlinks">
+                Linkedin </a>
+        </li>
+
+    </ul>
+
+
+</footer>
+
+
+
+</html>

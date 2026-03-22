@@ -1,0 +1,80 @@
+<html lang="en">
+<!--homepage html-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scot-Free</title>
+</head>
+<center>
+    <p style="padding: 30px;"> </p>
+    <strong>
+        <p style="font-size: 40px;">
+            PROJECT SCOT-FREE
+        </p>
+    </strong>
+
+    <p style="font-size: 18px;max-width: 90ch; padding: 10px">
+        Hello. This web-page is the culmination of <strong>PROJECT SCOT-FREE</strong>, an
+        attempt to
+        statistically predict
+        which murders remain unsolved and which killers are brought to justice. The model accessed below is a random
+        forest trained on FBI NIBRS
+        data from the six New England states in the years 2022-2024 inclusive. As such, its predictive power beyond
+        these geographic and
+        temporal bounds is limited. The source code can be found at the Github repository linked at the bottom of the
+        page.
+    <p>
+
+</center>
+
+<center>
+    <p style="padding: 30px;"> </p>
+
+    <form method="POST">
+        <label>Provide the date and state abbreviation of when/where the murder was committed: </label>
+        <input type="date" name="date">
+        <select required name="state" id="state">
+            <option value="NONE_GIVEN" disabled selected>--</option>
+            <option value="CT">CT</option>
+            <option value="MA">MA</option>
+            <option value="ME">ME</option>
+            <option value="NH">NH</option>
+            <option value="RI">RI</option>
+            <option value="VT">VT</option>
+        </select>
+        <input type="submit">
+    </form>
+</center>
+
+
+<footer style="padding: 60px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
+    © Edgar Lyons 2026
+
+    <style>
+        .footerlinks {
+            text-decoration: none;
+            color: black;
+            border: 1px solid black;
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+    </style>
+
+    <ul style="display: flex; gap: 16px; list-style: none;">
+        <li>
+            <a href="https://github.com/zedlyons/Public-Scot-Free" target="_blank" rel="noopener noreferrer"
+                class="footerlinks">
+
+                Github Repository</a>
+        </li>
+
+        <li>
+            <a href="https://www.linkedin.com/in/edgar-lyons-266591155" target="_blank" rel="noopener noreferrer"
+                class="footerlinks">
+                Linkedin </a>
+        </li>
+
+    </ul>
+</footer>
+
+</html>

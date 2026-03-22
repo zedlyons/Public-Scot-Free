@@ -1,6 +1,7 @@
 #!/bin/bash
 # This script loads all of the NIBRS data stored in ./<STATE>/<STATE>-<YEAR>
-# to a postgresql database called scotfreedb. 
+# to a postgresql database called scotfreedb. It is currently set to only load data
+# from New England states during 2022 through 2024 (inclusive)
 
 
 <<'###'
