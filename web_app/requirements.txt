@@ -94,8 +94,6 @@ pure_eval==0.2.3
 pyarrow==22.0.0
 pycparser==2.22
 Pygments==2.19.2
-pyobjc-core==12.1
-pyobjc-framework-Cocoa==12.1
 pyparsing==3.3.2
 PySocks==1.7.1
 python-dateutil==2.9.0.post0
