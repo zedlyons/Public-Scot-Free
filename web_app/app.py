@@ -68,22 +68,13 @@ def predict():
     state = request.form["state"]
     date_str = request.form["date"]
     date = pl.Series([date_str]).str.to_date()
-    hour = int(request.form["hour"])
     sex = request.form["vic_sex"]
-    res_status = request.form["res_status"]
-    age_decimal = int(request.form["vic_age"])
-    low_range = None if age_decimal < 1 else age_decimal
-    ethnicity_name = request.form["vic_ethnic"]
-    race = request.form["vic_race"]
     vic_type = request.form["vic_type"]
     crim_act = request.form["gang"]
-    location = request.form["location"]
     prop_destruction = 1 if "prop_destruction" in request.form else 0
     taken_by_cops = 1 if "taken_by_cops" in request.form else 0
     looted_remains = 1 if "looted_remains" in request.form else 0
-    firearms = 1 if "firearms" in request.form else 0
     feet_and_fists = 1 if "feet_and_fists" in request.form else 0
-    edged_weapon = 1 if "edged_weapon" in request.form else 0
     vehicle_as_weapon = 1 if "vehicle_as_weapon" in request.form else 0
     blunt_weapon = 1 if "blunt_weapon" in request.form else 0
     weaponized_fire = 1 if "weaponized_fire" in request.form else 0
@@ -105,10 +96,7 @@ def predict():
     input_data = pl.DataFrame(
         {
             "incident_year": date.dt.year()[0],
-            "incident_month": date.dt.month()[0],
             "incident_monthday": date.dt.day()[0],
-            "incident_hour": hour,
-            "incident_weekday": date.dt.weekday()[0],
             "incident_yearday": date.dt.ordinal_day()[0],
             "report_date_flag": 0,
             "state_abbr": state,
@@ -126,24 +114,15 @@ def predict():
             "officer_rate": agency_data["officer_rate"][0],
             "employee_rate": agency_data["employee_rate"][0],
             "county_name": agency_data["county_name"][0],
-            "msa_name": agency_data["msa_name"][0],
             "sex_code": sex,
-            "resident_status_code": res_status,
-            "age_range_low_num": low_range,
             "age_range_high_num": None,
-            "age_decimal": age_decimal,
             "victim_age_status": "age_known",
-            "ethnicity_name": ethnicity_name,
-            "race_desc": race,
             "victim_type_name": vic_type,
             "criminal_act_name": crim_act,
-            "location_name": location,
             "prop_destruction": prop_destruction,
             "taken_by_cops": taken_by_cops,
             "looted_remains": looted_remains,
-            "firearms": firearms,
             "feet_and_fists": feet_and_fists,
-            "edged_weapon": edged_weapon,
             "vehicle_as_weapon": vehicle_as_weapon,
             "blunt_weapon": blunt_weapon,
             "weaponized_fire": weaponized_fire,
@@ -176,7 +155,6 @@ def predict():
             "employee_rate_is_null": (
                 1 if agency_data["employee_rate"].is_null()[0] else 0
             ),
-            "resident_status_code_is_null": 0,
             "criminal_act_name_is_null": 0,
         }
     )

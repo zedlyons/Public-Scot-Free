@@ -37,11 +37,6 @@
 
     <p style="padding: 10px;"> </p>
 
-    <label for="hour">
-        Provide the hour that the murder was committed (24hr clock)
-    </label>
-    <input required type="number" id="hour" name="hour" min="0" max="23" style="margin-bottom: 3;">
-    <br>
     <label for="num_killers">
         How many perpetrators were involved in this murder?
     </label>
@@ -49,7 +44,7 @@
     <br>
 
     <label for="vic_sex">
-        Provide the victim's sex, age, race, and ethnicity
+        Provide the victim's sex, age and whether he/she was a police officer
     </label>
     <select required name="vic_sex" id="vic_sex">
         <option value="NONE_GIVEN" disabled selected>-</option>
@@ -58,32 +53,6 @@
     </select>
 
     <input type="number" id="vic_age" name="vic_age" min="0" max="99" style="margin-bottom: 3px;">
-
-    <select required name="vic_race">
-        <option value="NONE" disabled selected>--------------------------------</option>
-        <option value="Black or African American">Black</option>
-        <option value="White">White</option>
-        <option value="Asian">Asian</option>
-        <option value="American Indian or Alaska Native">Amerindian or Alaska Native</option>
-    </select>
-
-
-    <select required name="vic_ethnic">
-        <option value="NONE" disabled selected>--------------------</option>
-        <option value="Hispanic or Latino">Hispanic/Latino</option>
-        <option value="Not Hispanic or Latino">Not Hispanic/Latino</option>
-    </select>
-    <br>
-
-    <label for="res_status">
-        Was the victim a resident of the jurisdiction he/she was killed in? Was he/she a police officer?
-    </label>
-    <select required name="res_status" style="margin-bottom: 3px;">
-        <option value="NONE_GIVEN" disabled selected>----------</option>
-        <option value="R">Resident</option>
-        <option value="N">Non-resident</option>
-    </select>
-
     <select required name="vic_type">
         <option value="NONE_GIVEN" disabled selected>------------</option>
         <option value="Individual">Private Citizen</option>
@@ -101,45 +70,6 @@
         <option value="Other Gang">Other Gang</option>
     </select>
     <br>
-
-    <label for="location">
-        Provide the location-type of the killing
-    </label>
-    <select required name="location" style="margin-bottom: 6px;">
-        <option value="NONE_GIVEN" disabled selected>-------------------------------------------</option>
-        <option value="Park/Playground">Park/Playground</option>
-        <option value="Camp/Campground">Camp/Campground</option>
-        <option value="Department/Discount Store">Department/Discount Store</option>
-        <option value="Convenience Store">Convenience Store</option>
-        <option value="Bar/Nightclub">Bar/Nightclub</option>
-        <option value="Restaurant">Restaurant</option>
-        <option value="Liquor Store">Liquor Store</option>
-        <option value="Air/Bus/Train Terminal">Air/Bus/Train Terminal</option>
-        <option value="Lake/Waterway/Beach">Lake/Waterway/Beach</option>
-        <option value="Specialty Store">Specialty Store</option>
-        <option value="Residence/Home">Residence/Home</option>
-        <option value="Service/Gas Station">Service/Gas Station</option>
-        <option value="Hotel/Motel/Etc.">Hotel/Motel/Etc.</option>
-        <option value="Church/Synagogue/Temple/Mosque">Church/Synagogue/Temple/Mosque</option>
-        <option value="Field/Woods">Field/Woods</option>
-        <option value="Government/Public Building">Government/Public Building</option>
-        <option value="Bank/Savings and Loan">Bank/Savings and Loan</option>
-        <option value="Community Center">Community Center</option>
-        <option value="ATM Separate from Bank">ATM Separate from Bank</option>
-        <option value="Parking/Drop Lot/Garage">Parking/Drop Lot/Garage</option>
-        <option value="Abandoned/Condemned Structure">Abandoned/Condemned Structure</option>
-        <option value="Shelter-Mission/Homeless">Shelter-Mission/Homeless</option>
-        <option value="School-Elementary/Secondary">School-Elementary/Secondary</option>
-        <option value="Commercial/Office Building">Commercial/Office Building</option>
-        <option value="Drug Store/Doctor's Office/Hospital">Drug Store/Doctor's Office/Hospital</option>
-        <option value="Jail/Prison/Penitentiary/Corrections Facility">Jail/Prison/Penitentiary/Corrections Facility
-        </option>
-        <option value="Grocery/Supermarket">Grocery/Supermarket</option>
-        <option value="Highway/Road/Alley/Street/Sidewalk">Highway/Road/Alley/Street/Sidewalk</option>
-        <option value="Other/Unknown">Other/Unknown</option>
-    </select>
-    <br>
-
 
     <p style="font-size: 18px; margin-bottom: 3px;">
         Enumerate property losses associated with the murder below. Check all that apply
