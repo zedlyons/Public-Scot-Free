@@ -4,7 +4,7 @@ import polars as pl
 
 
 app = Flask(__name__)
-bignmodel = load("scotfreerandomforestmodel.joblib")
+model = load("scotfreerandomforestmodel.joblib")
 agencies = pl.read_parquet("agencies.parquet")
 
 # identity-infos of agencies are split across several columns so
@@ -182,9 +182,9 @@ def predict():
     )
 
     # feed user-given data into the model
-    output = bignmodel.best_estimator_.predict_proba(input_data)
-    # bignmodel.best_estimator_.classes_ returns array([0, 1], dtype=int32),
-    # i.e. bignmodel's estimation output is of form:
+    output = model.predict_proba(input_data)
+    # model.classes_ returns array([0, 1], dtype=int32),
+    # i.e. model's estimation output is of form:
     # [probability of getting caught, probability of getting away scot-free]
 
     return render_template(
