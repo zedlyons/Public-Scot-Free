@@ -4,8 +4,12 @@ import polars as pl
 
 
 app = Flask(__name__)
+app.logger.info("Starting loading block")
 model = load("scotfreerandomforestmodel.joblib")
+app.logger.info("Model loaded")
 agencies = pl.read_parquet("agencies.parquet")
+app.logger.info("Parquet loaded")
+
 
 # identity-infos of agencies are split across several columns so
 # catenate those elements together into one name column
