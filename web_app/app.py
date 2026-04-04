@@ -34,7 +34,7 @@ agencies = agencies.with_columns(
 def find_agency():
     if request.method == "GET":  # get user input for date and state of crime
         return render_template("home.html")
-    else:  # "POST" user has given state/date data
+    elif request.method == "POST":  # "POST" user has given state/date data
 
         # user can now pick which geo/temporally-correct agency investigates
         state = request.form["state"]
@@ -62,6 +62,8 @@ def find_agency():
             agen_options=relevant_agen,
             ag_year=ag_year,
         )
+    else:
+        return render_template("home.html")
 
 
 @app.route("/prediction", methods=["POST", "GET"])
