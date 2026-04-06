@@ -1,12 +1,19 @@
 from flask import Flask, render_template, request
-from joblib import load
+
+# from joblib import load
 import polars as pl
+
+import sklearn, numpy, joblib
+
+print(f"sklearn: {sklearn.__version__}")
+print(f"numpy: {numpy.__version__}")
+print(f"joblib: {joblib.__version__}")
 
 
 app = Flask(__name__)
 app.debug = True
 app.logger.info("Starting loading block")
-model = load("scotfreerandomforestmodel.joblib")
+model = joblib.load("scotfreerandomforestmodel.joblib")
 app.logger.info("Model loaded")
 agencies = pl.read_parquet("agencies.parquet")
 app.logger.info("Parquet loaded")
