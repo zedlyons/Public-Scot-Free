@@ -6,7 +6,7 @@ import polars as pl
 app = Flask(__name__)
 app.debug = True
 app.logger.info("Starting loading block")
-model = load("scotfreerandomforestmodel.joblib", protoc)
+model = load("scotfreerandomforestmodel.joblib")
 app.logger.info("Model loaded")
 agencies = pl.read_parquet("agencies.parquet")
 app.logger.info("Parquet loaded")
