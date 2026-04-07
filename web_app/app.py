@@ -5,13 +5,6 @@ import polars as pl
 
 import sklearn, numpy, joblib
 
-print(f"sklearn: {sklearn.__version__}")
-print(f"numpy: {numpy.__version__}")
-print(f"joblib: {joblib.__version__}")
-
-import os
-
-print(f"Model file size: {os.path.getsize('scotfreerandomforestmodel.joblib')} bytes")
 
 app = Flask(__name__)
 app.debug = True

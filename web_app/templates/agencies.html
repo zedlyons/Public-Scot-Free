@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Scot-Free</title>
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 </head>
 <center>
     <p style="padding: 30px;"> </p>
@@ -24,12 +26,14 @@
 
 <form action="/prediction" method="POST" style="margin-left: 200px;">
     <label for="choice"><strong>Note:</strong> "SO" is sheriff's office, "SP" is state police </label>
-    <input list="options-list" name="choice" id="choice" style="width: 700px;">
-    <datalist id="options-list">
+    <select required name="choice" id="choice" style="width: 700px;">
+        <option value="" disabled selected></option>
         {% for option in agen_options.rows() %}
-        <option value="{{ option[-1] }}">
-            {% endfor %}
-    </datalist><br>
+        <option value="{{ option[-1] }}">{{ option[-1] }}</option>
+        {% endfor %}
+    </select><br>
+
+
 
     <input type="hidden" name="date" id="date" value="{{ datevar }}">
     <input type="hidden" name="ag_year" id="ag_year" value="{{ ag_year }}">
@@ -123,6 +127,12 @@
 
 
 </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new TomSelect('#choice', { create: false });
+    });
+</script>
 
 <footer style="padding: 60px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
     © Edgar Lyons 2026

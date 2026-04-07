@@ -35,9 +35,9 @@
 
     <form method="POST">
         <label>Provide the date and state abbreviation of when/where the murder was committed: </label>
-        <input type="date" name="date">
+        <input required type="date" name="date">
         <select required name="state" id="state">
-            <option value="NONE_GIVEN" disabled selected>--</option>
+            <option value="" disabled selected>--</option>
             <option value="CT">CT</option>
             <option value="MA">MA</option>
             <option value="ME">ME</option>
