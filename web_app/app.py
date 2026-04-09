@@ -1,13 +1,12 @@
 from flask import Flask, render_template, request
-
-# from joblib import load
 import polars as pl
-
 import sklearn, numpy, joblib
 
 
 app = Flask(__name__)
 app.debug = True
+
+# print these to logs
 app.logger.info("Starting loading block")
 model = joblib.load("scotfreerandomforestmodel.joblib")
 app.logger.info("Model loaded")
@@ -65,7 +64,7 @@ def find_agency():
             agen_options=relevant_agen,
             ag_year=ag_year,
         )
-    else:
+    else:  # in case of a secret, third method
         return render_template("home.html")
 
 
@@ -102,7 +101,7 @@ def predict():
         & (pl.col("agency_full_name") == ag_name_string)
     )
 
-    # many values are hard-coded. Tried to limit the user's ability to choose unknown-like options
+    # many values are hard-coded to limit the user's ability to choose unknown-like options
     input_data = pl.DataFrame(
         {
             "incident_year": date.dt.year()[0],
@@ -178,7 +177,6 @@ def predict():
     return render_template(
         "prediction.html",
         scotfree_prob=str(round(output[0][1] * 100, 2)) + "%",
-        statevar="prediction_gtg",
     )
 
 
